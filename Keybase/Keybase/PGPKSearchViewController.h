@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSArray *results;
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 @property (nonatomic, strong) UISearchDisplayController *searchController;
+@property (nonatomic, strong) UITableView *activeTable;
+@property (nonatomic, strong) IBOutlet UITableView *mainTable;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

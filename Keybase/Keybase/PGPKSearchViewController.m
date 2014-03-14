@@ -10,6 +10,7 @@
 #import "PGPKUserCell.h"
 #import "PGPKGlobals.h"
 #import "UIImageView+AFNetworking.h"
+#import "PGPKUserProfileViewController.h"
 #include <QuartzCore/QuartzCore.h>
 
 @interface PGPKSearchViewController ()
@@ -17,7 +18,7 @@
 @end
 
 @implementation PGPKSearchViewController
-@synthesize results, manager, searchController, searchBar;
+@synthesize results, manager, searchController, searchBar, mainTable;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -51,9 +52,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    NSLog(@"called");
-    
     return [results count];
 }
 
@@ -113,7 +111,6 @@
 
 }
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    NSLog(@"%@", searchString);
     AFHTTPRequestOperationManager *httpManager = [AFHTTPRequestOperationManager manager];
     [httpManager GET:[NSString stringWithFormat:@"%@user/autocomplete.json?q=%@", apiBaseURL, searchString] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         results = [responseObject objectForKey:@"completions"];
@@ -124,4 +121,25 @@
     return NO;
 
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"displayProfileFromSearchResults" sender:[tableView cellForRowAtIndexPath:indexPath]];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"displayProfileFromSearchResults"]) {
+        PGPKUserCell *cell = (PGPKUserCell *)sender;
+
+        PGPKUserProfileViewController *vc = [segue destinationViewController];
+        
+        [vc setUsername:cell.usernameLabel.text];
+    }
+}
+
+-(void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView {
+    [mainTable reloadData];
+}
+
 @end

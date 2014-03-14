@@ -57,6 +57,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="wfV-Sc-bz0" kind="push" id="FWR-zT-Tv3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QQ7-Db-5cX">
                                 <rect key="frame" x="20" y="174" width="280" height="30"/>
@@ -87,7 +90,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-265" y="186"/>
+            <point key="canvasLocation" x="-423" y="182"/>
         </scene>
         <!--Search View Controller - Search-->
         <scene sceneID="M1P-ZZ-XWj">
@@ -107,11 +110,11 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="122" id="cxf-Pa-MAe" customClass="PGPKUserCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="122" id="cxf-Pa-MAe" customClass="PGPKUserCell">
                                 <rect key="frame" x="0.0" y="130" width="320" height="122"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="cxf-Pa-MAe" id="3B9-95-bv9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="121"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="I14-YR-qTj">
@@ -173,8 +176,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="0AS-cZ-7le"/>
                     <connections>
+                        <outlet property="mainTable" destination="r4S-v0-FI8" id="MIg-f6-7UJ"/>
                         <outlet property="searchBar" destination="TOb-pI-AbM" id="Yxh-cM-TmZ"/>
                         <outlet property="searchDisplayController" destination="Vh6-bZ-1Hu" id="l4h-gV-L3u"/>
+                        <segue destination="k2U-Us-1dZ" kind="push" identifier="displayProfileFromSearchResults" id="VVv-fe-yC2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdz-7D-9yR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -188,7 +193,75 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="124" y="-589"/>
+            <point key="canvasLocation" x="108" y="-595"/>
+        </scene>
+        <!--User Profile View Controller - Full Name-->
+        <scene sceneID="M2j-W2-AQY">
+            <objects>
+                <viewController id="k2U-Us-1dZ" customClass="PGPKUserProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EiE-NK-Heo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_photo.png" id="W4f-dT-5rU">
+                                <rect key="frame" x="85" y="145" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Current API Does Not Support GitHub/Twitter/Profile Image)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="coK-c5-yM5">
+                                <rect key="frame" x="20" y="76" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tu2-Ls-omt">
+                                <rect key="frame" x="20" y="332" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bio" textAlignment="center" id="kDO-LK-kTv">
+                                <rect key="frame" x="20" y="390" width="280" height="158"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UV4-uM-IGy">
+                                <rect key="frame" x="20" y="303" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="52n-Cm-obI">
+                                <rect key="frame" x="20" y="361" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter Username Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rzL-mm-J0S">
+                                <rect key="frame" x="70" y="105" width="181" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Full Name" id="jTx-em-hmb"/>
+                    <connections>
+                        <outlet property="bioTextField" destination="kDO-LK-kTv" id="VPV-F4-TfK"/>
+                        <outlet property="fullnameLabel" destination="UV4-uM-IGy" id="oXs-4a-fc6"/>
+                        <outlet property="githubUsername" destination="coK-c5-yM5" id="VRi-0C-AeF"/>
+                        <outlet property="locationLabel" destination="52n-Cm-obI" id="Z4y-aK-vLv"/>
+                        <outlet property="profileImage" destination="W4f-dT-5rU" id="1fT-Gb-Xal"/>
+                        <outlet property="twitterUsernameLabel" destination="rzL-mm-J0S" id="ybN-GT-n24"/>
+                        <outlet property="usernameLabel" destination="Tu2-Ls-omt" id="X7i-1e-vb2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnb-a9-V20" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="586" y="-589"/>
         </scene>
         <!--Verify Message View Controller - Verify Message-->
         <scene sceneID="aSA-bh-aPw">
@@ -229,13 +302,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUl-Kz-f1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="377" y="142"/>
+            <point key="canvasLocation" x="124" y="72"/>
+        </scene>
+        <!--Login View Controller - Login-->
+        <scene sceneID="XzI-6b-gl1">
+            <objects>
+                <viewController id="wfV-Sc-bz0" customClass="PGPKLoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0ck-wh-QMj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" id="Q9x-CT-8Lh">
+                                <rect key="frame" x="20" y="250" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" id="Fgh-pS-Idj">
+                                <rect key="frame" x="20" y="288" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uJ1-5K-JbW">
+                                <rect key="frame" x="20" y="326" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="0lj-Kn-6D1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CUA-Ci-A6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="742"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon_github.png" width="128" height="128"/>
         <image name="icon_key.png" width="128" height="128"/>
         <image name="icon_user.png" width="128" height="128"/>
+        <image name="no_photo.png" width="165" height="165"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

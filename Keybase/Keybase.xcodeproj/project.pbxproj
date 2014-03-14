@@ -29,6 +29,8 @@
 		C6F763CB18D25AA90099D4A0 /* PGPKUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F763CA18D25AA90099D4A0 /* PGPKUserCell.m */; };
 		C6F763CE18D25AC60099D4A0 /* PGPKSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F763CD18D25AC60099D4A0 /* PGPKSearchViewController.m */; };
 		C6F763D018D2BE480099D4A0 /* no_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F763CF18D2BE480099D4A0 /* no_photo.png */; };
+		C6F763D418D394F10099D4A0 /* PGPKUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F763D318D394F10099D4A0 /* PGPKUserProfileViewController.m */; };
+		C6F763D818D3A4AA0099D4A0 /* PGPKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F763D718D3A4AA0099D4A0 /* PGPKLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,10 @@
 		C6F763CC18D25AC60099D4A0 /* PGPKSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPKSearchViewController.h; sourceTree = "<group>"; };
 		C6F763CD18D25AC60099D4A0 /* PGPKSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPKSearchViewController.m; sourceTree = "<group>"; };
 		C6F763CF18D2BE480099D4A0 /* no_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_photo.png; sourceTree = "<group>"; };
+		C6F763D218D394F10099D4A0 /* PGPKUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPKUserProfileViewController.h; sourceTree = "<group>"; };
+		C6F763D318D394F10099D4A0 /* PGPKUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPKUserProfileViewController.m; sourceTree = "<group>"; };
+		C6F763D618D3A4AA0099D4A0 /* PGPKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPKLoginViewController.h; sourceTree = "<group>"; };
+		C6F763D718D3A4AA0099D4A0 /* PGPKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPKLoginViewController.m; sourceTree = "<group>"; };
 		F52DBB665BB44509BAD5023D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +187,8 @@
 		C6D8A75918D248E200722E4E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C6F763D518D3A4950099D4A0 /* Login */,
+				C6F763D118D394B90099D4A0 /* User Profile */,
 				C6F763C318D25A5D0099D4A0 /* Search */,
 				C6F763B618D250B50099D4A0 /* Verify */,
 				C6D8A75A18D248EA00722E4E /* Main Menu */,
@@ -243,6 +251,24 @@
 				C6F763CD18D25AC60099D4A0 /* PGPKSearchViewController.m */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		C6F763D118D394B90099D4A0 /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C6F763D218D394F10099D4A0 /* PGPKUserProfileViewController.h */,
+				C6F763D318D394F10099D4A0 /* PGPKUserProfileViewController.m */,
+			);
+			name = "User Profile";
+			sourceTree = "<group>";
+		};
+		C6F763D518D3A4950099D4A0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C6F763D618D3A4AA0099D4A0 /* PGPKLoginViewController.h */,
+				C6F763D718D3A4AA0099D4A0 /* PGPKLoginViewController.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,8 +411,10 @@
 				C6D8A73218D243A900722E4E /* PGPKAppDelegate.m in Sources */,
 				C6F763CB18D25AA90099D4A0 /* PGPKUserCell.m in Sources */,
 				C6F763B918D2519F0099D4A0 /* PGPKVerifyMessageViewController.m in Sources */,
+				C6F763D418D394F10099D4A0 /* PGPKUserProfileViewController.m in Sources */,
 				C6F763CE18D25AC60099D4A0 /* PGPKSearchViewController.m in Sources */,
 				C6D8A75E18D2490D00722E4E /* PGPKMainMenuViewController.m in Sources */,
+				C6F763D818D3A4AA0099D4A0 /* PGPKLoginViewController.m in Sources */,
 				C6D8A72E18D243A900722E4E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

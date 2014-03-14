@@ -28,11 +28,18 @@
 {
     [super viewDidLoad];
     messageToVerify.text = [UIPasteboard generalPasteboard].string;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTextWithClipboard) name:UIPasteboardChangedNotification object:nil];
+    UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:@"Paste" action:@selector(updateTextWithClipboard)];
+    [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObject:menuItem]];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)updateTextWithClipboard
 {
     messageToVerify.text = [UIPasteboard generalPasteboard].string;
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

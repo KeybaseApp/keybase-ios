@@ -31,6 +31,8 @@
 		C6F763D018D2BE480099D4A0 /* no_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F763CF18D2BE480099D4A0 /* no_photo.png */; };
 		C6F763D418D394F10099D4A0 /* PGPKUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F763D318D394F10099D4A0 /* PGPKUserProfileViewController.m */; };
 		C6F763D818D3A4AA0099D4A0 /* PGPKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F763D718D3A4AA0099D4A0 /* PGPKLoginViewController.m */; };
+		C6F763DA18D3AC590099D4A0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F763D918D3AC590099D4A0 /* Security.framework */; };
+		C6F763DE18D3B7EB0099D4A0 /* PGPKHex2Bin.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F763DD18D3B7EB0099D4A0 /* PGPKHex2Bin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,9 @@
 		C6F763D318D394F10099D4A0 /* PGPKUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPKUserProfileViewController.m; sourceTree = "<group>"; };
 		C6F763D618D3A4AA0099D4A0 /* PGPKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPKLoginViewController.h; sourceTree = "<group>"; };
 		C6F763D718D3A4AA0099D4A0 /* PGPKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPKLoginViewController.m; sourceTree = "<group>"; };
+		C6F763D918D3AC590099D4A0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C6F763DC18D3B7EB0099D4A0 /* PGPKHex2Bin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPKHex2Bin.h; sourceTree = "<group>"; };
+		C6F763DD18D3B7EB0099D4A0 /* PGPKHex2Bin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPKHex2Bin.m; sourceTree = "<group>"; };
 		F52DBB665BB44509BAD5023D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6F763DA18D3AC590099D4A0 /* Security.framework in Frameworks */,
 				C6D8A72418D243A700722E4E /* CoreGraphics.framework in Frameworks */,
 				C6D8A72618D243A700722E4E /* UIKit.framework in Frameworks */,
 				C6D8A72218D243A700722E4E /* Foundation.framework in Frameworks */,
@@ -131,6 +137,7 @@
 		C6D8A72018D243A700722E4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6F763D918D3AC590099D4A0 /* Security.framework */,
 				C6D8A72118D243A700722E4E /* Foundation.framework */,
 				C6D8A72318D243A700722E4E /* CoreGraphics.framework */,
 				C6D8A72518D243A700722E4E /* UIKit.framework */,
@@ -143,13 +150,14 @@
 		C6D8A72718D243A700722E4E /* Keybase */ = {
 			isa = PBXGroup;
 			children = (
-				C6F763BA18D255E30099D4A0 /* Images */,
+				C6D8A75618D243E100722E4E /* PGPKGlobals.h */,
 				C6D8A73018D243A900722E4E /* PGPKAppDelegate.h */,
 				C6D8A73118D243A900722E4E /* PGPKAppDelegate.m */,
-				C6D8A75918D248E200722E4E /* View Controllers */,
 				C6D8A73318D243AA00722E4E /* Main.storyboard */,
-				C6D8A75618D243E100722E4E /* PGPKGlobals.h */,
-				C6D8A73918D243AB00722E4E /* Images.xcassets */,
+				C6D8A75918D248E200722E4E /* View Controllers */,
+				C6F763DB18D3B77F0099D4A0 /* Custom Encryption Classes */,
+				C6F763BA18D255E30099D4A0 /* Images */,
+				C6F763DF18D3BB740099D4A0 /* Libraries */,
 				C6D8A72818D243A800722E4E /* Supporting Files */,
 			);
 			path = Keybase;
@@ -224,6 +232,7 @@
 		C6F763BA18D255E30099D4A0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C6D8A73918D243AB00722E4E /* Images.xcassets */,
 				C6F763BB18D255FF0099D4A0 /* User Object Images */,
 				C6D8A75B18D248F000722E4E /* Main Menu Images */,
 			);
@@ -269,6 +278,22 @@
 				C6F763D718D3A4AA0099D4A0 /* PGPKLoginViewController.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		C6F763DB18D3B77F0099D4A0 /* Custom Encryption Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C6F763DC18D3B7EB0099D4A0 /* PGPKHex2Bin.h */,
+				C6F763DD18D3B7EB0099D4A0 /* PGPKHex2Bin.m */,
+			);
+			name = "Custom Encryption Classes";
+			sourceTree = "<group>";
+		};
+		C6F763DF18D3BB740099D4A0 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +440,7 @@
 				C6F763CE18D25AC60099D4A0 /* PGPKSearchViewController.m in Sources */,
 				C6D8A75E18D2490D00722E4E /* PGPKMainMenuViewController.m in Sources */,
 				C6F763D818D3A4AA0099D4A0 /* PGPKLoginViewController.m in Sources */,
+				C6F763DE18D3B7EB0099D4A0 /* PGPKHex2Bin.m in Sources */,
 				C6D8A72E18D243A900722E4E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFNetworking.h"
 
 @interface PGPKLoginViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITextField *loginField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UIButton *submitButton;
+@property (strong, nonatomic) NSDictionary *responseData;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
+@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
